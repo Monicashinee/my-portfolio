@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio | Java Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+ <header>
+  <div class="container">
+    <h1 class="logo">M<span> Monicashinee</span></h1>
+
+    <!-- Hamburger icon -->
+    <div class="hamburger" id="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <!-- Navigation links -->
+    <nav id="navMenu">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+
+  <!-- HERO SECTION -->
+ 
+<section id="hero">
+  <div class="container hero-content">
+    <img src="pic.jpg" alt="Profile Picture" class="profile-pic">
+    <h2>Hello, I’m <span>Monica</span></h2>
+    <p>A passionate <b>Spring Boot Developer</b> building modern, scalable web apps.</p>
+    
+    <div class="hero-buttons">
+      <a href="#contact" class="btn">Get In Touch</a>
+
+      <!-- Resume download button -->
+     <a href="My_resume.pdf" class="btn resume-btn" download>
+  <span class="twitter-icon"></span>
+  Download Resume
+</a>
+    </div>
+  </div>
+</section>
+
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2>About Me</h2>
+      <p>
+        I'm a backend developer specialized in Java and Spring Boot, creating efficient and secure APIs. I love exploring clean code practices, database design, and microservices architecture. I enjoy building complete web applications by combining clean, responsive front-end designs with efficient and scalable back-end systems.
+      </p>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section alt-bg">
+    <div class="container">
+      <h2>Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-card">Java</div>
+        <div class="skill-card">Spring Boot</div>
+        <div class="skill-card">Sql/NoSql</div>
+        <div class="skill-card">REST APIs</div>
+        <div class="skill-card">HTML / CSS / JS</div>
+        <div class="skill-card">Git & GitHub</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2>Projects</h2>
+      <div class="projects-grid">
+        <div class="project-card">
+          <h3>Task Management App</h3>
+          <p>A Spring Boot CRUD application using H2 Database to manage tasks.</p>
+        </div>
+        <div class="project-card">
+          <h3>Sentiment Dashboard</h3>
+          <p>Built a web scraper using BeautifulSoup to extract 
+live data from social media platforms.</p>
+        </div>
+        <div class="project-card">
+          <h3>Portfolio Contact Service</h3>
+          <p>Spring Boot REST API that sends contact form messages to your email.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+<!-- GALLERY -->
+<section id="gallery" class="section alt-bg">
+  <div class="container">
+    <h2>My Hobbies & Inspirations</h2>
+
+    <div class="gallery-grid">
+      <img src="gallery1.png" alt="Coding Passion" class="gallery-img">
+      <img src="gallery2.png" alt="Reading Tech Blogs" class="gallery-img">
+      <img src="gallery3.png" alt="Learning New Skills" class="gallery-img">
+      <img src="gallery4.png" alt="Problem Solving" class="gallery-img">
+      
+    </div>
+  </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <span id="closeBtn">&times;</span>
+  <img id="lightboxImg">
+</div>
+
+
+<!-- FOOTER -->
+  <footer>
+    <section id="contact" >
+  <p>Connect with me:</p>
+  <div class="social-icons">
+    <a href="https://www.linkedin.com/in/monicashinee-m-1540142b6/" target="_blank" class="linkedin-icon"></a>
+    <a href="https://github.com/Monicashinee" target="_blank" class="github-icon"></a>
+  </div>
+  <p>&copy; 2026. Monicashinee M.</p>
+  </section>
+</footer>
+
+
+  <script>
+    
+
+     const hamburger = document.getElementById("hamburger");
+  const navMenu = document.querySelector("nav ul");
+
+  hamburger.addEventListener("click", () => {
+    hamburger.classList.toggle("active");
+    navMenu.classList.toggle("active");
+  });
+
+  
+  document.querySelectorAll("nav a").forEach(link => {
+    link.addEventListener("click", () => {
+      hamburger.classList.remove("active");
+      navMenu.classList.remove("active");
+    });
+  });
+
+
+
+  const galleryImages = document.querySelectorAll(".gallery-img");
+
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightboxImg");
+  const closeBtn = document.getElementById("closeBtn");
+
+  galleryImages.forEach(img => {
+    img.addEventListener("click", () => {
+      lightbox.style.display = "flex";
+      lightboxImg.src = img.src;
+    });
+  });
+
+  closeBtn.addEventListener("click", () => {
+    lightbox.style.display = "none";
+  });
+
+  lightbox.addEventListener("click", (e) => {
+    if (e.target !== lightboxImg) {
+      lightbox.style.display = "none";
+    }
+  });
+
+
+  </script>
+
+</body>
+</html>
